@@ -27,25 +27,32 @@ var questionChoices = [{
         correctImage: 'assets/images/Thors_Hammer.jpg',
         wrongImage: 'assets/images/thor_wrong.gif',
         youreRight: 'You got it Right',
-        youreWrong: 'You got it Wrong'
+        youreWrong: 'You got it Wrong, The right answer was Mjolnir',
+        timesUp: 'Times up! The right answer was Mjolnir'
     },
     {
         question: 'How many realms are there in the Marvel Universe',
         answers: [ '5 Realms', '10 Realms', '9 Realms', '7 Realms',],
         correctAnswer: 2,
-        youreRight: 'You got it Right'
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was 9 Realms',
+        timesUp: 'Times up! The right answer was 9 Realms'
     },
     {
         question: 'Who has appeared in every Marvel Cinematic Universe Film',
         answers: [ 'Robert Downey Jr', 'Stanley Leonard', 'Stan Lee', 'Mr. Rogers' ],
         correctAnswer: 2,
-        youreRight: 'You got it Right'
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was Stan Lee',
+        timesUp: 'Times up! The right answer was Stan Lee'
     },
     {
         question: 'Who Plays Spider-man is Spider-Man homecoming',
         answers: [ 'Tom Holland', 'Tobey Maguire', 'Andrew Garfield', 'Drake Bell' ],
         correctAnswer: 0,
-        youreRight: 'You got it Right'
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was Tom Holland',
+        timesUp: 'Times up! The right answer was Tom Holland'
     }
 
 ];
@@ -152,6 +159,9 @@ function checkAnswer() {
     
     // create a variable to hold the wrong answer choice message
     var wrongMsgIndex = questionChoices[currentQuestion].youreWrong;
+
+    // create a variable to hold the times up message
+    var timeUpMsgIndex = questionChoices[currentQuestion].timesUp;
     
     // create a variable to hold the right answer image
     var correctImg = questionChoices[currentQuestion].correctImage;
@@ -236,7 +246,7 @@ function checkAnswer() {
     else {
         // add counter to wrong answers to display later
         wrongAnswers++;
-        console.log('You Got it Wrong');
+        console.log('Times Up!');
         
         // creat new img to display wrong answer image
         var incorrectImg = $('<img>');
@@ -249,20 +259,20 @@ function checkAnswer() {
         
         // add wrong answer to DOM to display on htmll
         $('.questionsContainer').append(incorrectImg);
-        console.log('Wrong Answer Image Successfully Added');
+        console.log('Times Up Image Successfully Added');
         
         // create new Div to display wrong answer message
-		var wrongDiv = $('<div>');
+		var timeUpDiv = $('<div>');
         
         //Give new Div a class for css
-		wrongDiv.addClass('wrongAnswer');
+		timeUpDiv.addClass('timeUp');
         
         //adds wrong answer message to player
-		wrongDiv.text(wrongMsgIndex);
+		timeUpDiv.text(timeUpMsgIndex);
         
         //add wrong answer to DOM to display on HTML
-        $('.questionsContainer').append(wrongDiv);
-        console.log('Wrong Answer Message Successfully Added');
+        $('.questionsContainer').append(timeUpDiv);
+        console.log('Times Up! Message Successfully Added');
         
         // re state answer true to proceed to next question to start timer back up
         answered = true
@@ -393,11 +403,11 @@ function finalResults() {
     wrongAnswers = 0;
 
     // On click event for when player chooses to play again
-    $('.resetBtn').on('click',function(){
+    $('.btn-restart').on('click',function(){
 
         // If player chooses to play again empty final results from container
 		$('.questionsContainer').empty()
-        
+        console.log("Successfully Restarted");
         //Game restarts from the first question by calling the asked question function
 		askedQuestion();
 	});
