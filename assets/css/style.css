@@ -1,0 +1,53 @@
+body {
+    background: url('../images/marvel_background.jpg');
+    width: 100%;
+    font-size: 25px;
+}
+
+.headercontainer {
+    width:100%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    padding: 20px;
+    background-color: red;
+}
+
+.container {
+    color: red;
+    width: 970px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.questionsContainer {
+    color: red;
+    width: 970px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.answers:hover{
+	background-color: red;
+	color: white;
+	padding: 10px;
+}
+
+.btn-startGame {
+    text-align: center;
+    margin: 200px;
+
+}
+
+.wrongImg {
+    width: 500px;
+    height: 300px;
+}
+
