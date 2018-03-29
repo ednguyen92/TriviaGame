@@ -24,8 +24,9 @@ var questionChoices = [{
         question: 'Name Thors Hammer',
         answers: [ 'Hammer of Lightning', 'Thor Jr', 'Jolnia', 'Mjolnir' ],
         correctAnswer: 3,
-        correctImage: 'assets/images/Thors_Hammer.jpg',
+        correctImage: 'assets/images/thor_right.gif',
         wrongImage: 'assets/images/thor_wrong.gif',
+        timeImage: 'assets/images/thor_timesup.gif',
         youreRight: 'You got it Right',
         youreWrong: 'You got it Wrong, The right answer was Mjolnir',
         timesUp: 'Times up! The right answer was Mjolnir'
@@ -42,6 +43,9 @@ var questionChoices = [{
         question: 'Who has appeared in every Marvel Cinematic Universe Film',
         answers: [ 'Robert Downey Jr', 'Stanley Leonard', 'Stan Lee', 'Mr. Rogers' ],
         correctAnswer: 2,
+        correctImage: 'assets/images/stanlee_right.gif',
+        wrongImage: 'assets/images/stanlee_wrong.gif',
+        timeImage: 'assets/images/stanlee_timesup.gif',
         youreRight: 'You got it Right',
         youreWrong: 'You got it Wrong, The right answer was Stan Lee',
         timesUp: 'Times up! The right answer was Stan Lee'
@@ -50,6 +54,9 @@ var questionChoices = [{
         question: 'Who Plays Spider-man is Spider-Man homecoming',
         answers: [ 'Tom Holland', 'Tobey Maguire', 'Andrew Garfield', 'Drake Bell' ],
         correctAnswer: 0,
+        correctImage: 'assets/images/spiderman_right.gif',
+        wrongImage: 'assets/images/spiderman_wrong.gif',
+        timeImage: 'assets/images/spiderman_timesup.gif',
         youreRight: 'You got it Right',
         youreWrong: 'You got it Wrong, The right answer was Tom Holland',
         timesUp: 'Times up! The right answer was Tom Holland'
@@ -169,11 +176,14 @@ function checkAnswer() {
     // create a variable to hold the wrong answer image
     var wrongImg = questionChoices[currentQuestion].wrongImage;
 
+    // create a variable to hold the times up answer image
+    var timeImg = questionChoices[currentQuestion].timeImage;
+
     // empty container of questions and answers after user chooses an answer
     $('.questionsContainer').empty();
 
     // if state to check whether user answer is correct
-    if(userAnswer == rightAnswerIndex && (answered = true) ) {
+    if(userAnswer === rightAnswerIndex && (answered === true) ) {
         
         // increment right answers to display to user later
         rightAnswers++;
@@ -181,6 +191,9 @@ function checkAnswer() {
         
         // create new image to hold correct image
         var rightImg = $('<img>');
+
+        // add class to new img for css
+        rightImg.addClass('rightImg');
 
         // add attribute to right image to retrieve the image
         rightImg.attr('src',correctImg);
@@ -207,7 +220,7 @@ function checkAnswer() {
     } 
     
     // else statement if the user answer is incorrect
-    else if (userAnswer != rightAnswerIndex && (answered = true) ){
+    else if (userAnswer !== rightAnswerIndex && (answered === true) ){
         
         // add counter to wrong answers to display later
         wrongAnswers++;
@@ -249,16 +262,16 @@ function checkAnswer() {
         console.log('Times Up!');
         
         // creat new img to display wrong answer image
-        var incorrectImg = $('<img>');
+        var timeUpImg = $('<img>');
         
         // add class to new img for css
-        incorrectImg.addClass('wrongImg');
+        timeUpImg.addClass('timeUpImg');
         
         // add attr to new img to retrieve wrong answer image from object
-        incorrectImg.attr('src', wrongImg);
+        timeUpImg.attr('src', timeImg);
         
         // add wrong answer to DOM to display on htmll
-        $('.questionsContainer').append(incorrectImg);
+        $('.questionsContainer').append(timeUpImg);
         console.log('Times Up Image Successfully Added');
         
         // create new Div to display wrong answer message
@@ -275,7 +288,7 @@ function checkAnswer() {
         console.log('Times Up! Message Successfully Added');
         
         // re state answer true to proceed to next question to start timer back up
-        answered = true
+        answered === true;
 
         // add to current question counter
         currentQuestion+=1;
@@ -284,13 +297,13 @@ function checkAnswer() {
     // if statement to check whether there are more questions left
     if(currentQuestion <= 3){
         // If there are more questions left set time out to proceed to next question
-		setTimeout(askedQuestion, 3000);
+		setTimeout(askedQuestion, 4000);
 		
     } 
     // else statement if there are no more questions
     else{
         // if there are no more questions set time out to proceed to results screen
-        setTimeout(finalResults, 3000);
+        setTimeout(finalResults, 4000);
 	}
 
 }

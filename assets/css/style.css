@@ -17,12 +17,17 @@ h1 {
     background-color: red;
 }
 
+/**************************************************
+*        Start Question Container CSS             *
+**************************************************/
+
 .container {
     color: red;
     width: 970px;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Oswald', sans-serif;
 
 }
 
@@ -45,7 +50,10 @@ h1 {
 .answers:hover{
 	background-color: red;
 	color: white;
-	padding: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .btn-startGame {
@@ -54,8 +62,11 @@ h1 {
 
 }
 
-.wrongImg {
+.wrongImg, .rightImg, .timeUpImg {
     width: 500px;
     height: 300px;
 }
 
+/**************************************************
+*         End Question Container CSS              *
+**************************************************/
