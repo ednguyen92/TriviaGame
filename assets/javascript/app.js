@@ -21,7 +21,7 @@ var answered;
 **************************************************/
 // create object containing questions, choices, correct/wrong answer msgs, and correct/wrong images.
 var questionChoices = [{
-        question: 'Name Thors Hammer',
+        question: 'Name Thors Hammer!',
         answers: [ 'Hammer of Lightning', 'Thor Jr', 'Jolnia', 'Mjolnir' ],
         correctAnswer: 3,
         correctImage: 'assets/images/thor_right.gif',
@@ -32,15 +32,29 @@ var questionChoices = [{
         timesUp: 'Times up! The right answer was Mjolnir'
     },
     {
-        question: 'How many realms are there in the Marvel Universe',
-        answers: [ '5 Realms', '10 Realms', '9 Realms', '7 Realms',],
+        question: 'Whats Captain Americas shield made of?',
+        answers: [ 'Titanium Alloy', 'Mithril', 'Vibranium', 'Adamantium',],
         correctAnswer: 2,
+        correctImage: 'assets/images/captain_right.gif',
+        wrongImage: 'assets/images/captain_wrong.gif',
+        timeImage: 'assets/images/captain_timesup.gif',
         youreRight: 'You got it Right',
-        youreWrong: 'You got it Wrong, The right answer was 9 Realms',
-        timesUp: 'Times up! The right answer was 9 Realms'
+        youreWrong: 'You got it Wrong, The right answer was Vibranium',
+        timesUp: 'Times up! The right answer was Vibranium'
     },
     {
-        question: 'Who has appeared in every Marvel Cinematic Universe Film',
+        question: 'What power source does Iron Mans Suit use?',
+        answers: [ 'Solar Power', 'Arc Reactor', 'Nuclear Power', 'The Power of Justice',],
+        correctAnswer: 1,
+        correctImage: 'assets/images/ironman_right.gif',
+        wrongImage: 'assets/images/ironman_wrong.gif',
+        timeImage: 'assets/images/ironman_timesup.gif',
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was Arc Reactor',
+        timesUp: 'Times up! The right answer was Arc Reactor'
+    },
+    {
+        question: 'Who has appeared in every Marvel Cinematic Universe Film?',
         answers: [ 'Robert Downey Jr', 'Stanley Leonard', 'Stan Lee', 'Mr. Rogers' ],
         correctAnswer: 2,
         correctImage: 'assets/images/stanlee_right.gif',
@@ -51,7 +65,7 @@ var questionChoices = [{
         timesUp: 'Times up! The right answer was Stan Lee'
     },
     {
-        question: 'Who Plays Spider-man is Spider-Man homecoming',
+        question: 'Who Plays Spider-man is Spider-Man homecoming?',
         answers: [ 'Tom Holland', 'Tobey Maguire', 'Andrew Garfield', 'Drake Bell' ],
         correctAnswer: 0,
         correctImage: 'assets/images/spiderman_right.gif',
@@ -60,6 +74,28 @@ var questionChoices = [{
         youreRight: 'You got it Right',
         youreWrong: 'You got it Wrong, The right answer was Tom Holland',
         timesUp: 'Times up! The right answer was Tom Holland'
+    },
+    {
+        question: 'What brother and sister pair from the comics were revealed in the post-credits scene for Captain America: The Winter Soldier?',
+        answers: [ 'Sue Storm and Johnny Storm', 'Andrea and Andreas Von Strucker', 'Satana and HellStorm', 'Quick Silver and Scarlet Witch',],
+        correctAnswer: 3,
+        correctImage: 'assets/images/scarquick_right.gif',
+        wrongImage: 'assets/images/scarquick_wrong.gif',
+        timeImage: 'assets/images/scarquick_timesup.gif',
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was Quick Silver and Scarlet Witch',
+        timesUp: 'Times up! The right answer was Quick Silver and Scarlet Witch'
+    },
+    {
+        question: 'What song does baby Groot dance to at the end of Guardians of the Galaxy?',
+        answers: [ 'Wanna Be Starting Something, Michael Jackson', 'Want You Back, The Jackson 5', 'Uptight, Stevie Wonder', 'O-O-h Child, Five Stair steps',],
+        correctAnswer: 1,
+        correctImage: 'assets/images/groot_right.gif',
+        wrongImage: 'assets/images/groot_wrong.gif',
+        timeImage: 'assets/images/groot_timesup.gif',
+        youreRight: 'You got it Right',
+        youreWrong: 'You got it Wrong, The right answer was Want You Back, The Jackson 5',
+        timesUp: 'Times up! The right answer was Want You Back, The Jackson 5'
     }
 
 ];
@@ -295,7 +331,7 @@ function checkAnswer() {
     }
 
     // if statement to check whether there are more questions left
-    if(currentQuestion <= 3){
+    if(currentQuestion <= 6){
         // If there are more questions left set time out to proceed to next question
 		setTimeout(askedQuestion, 4000);
 		
